@@ -1,0 +1,145 @@
+\section{Fenômenos de Transporte de Calor}
+
+A transferência de calor é um fenômeno em que, na física, dois corpos com temperaturas diferentes trocam suas energias térmicas quando estão em contato ou em um mesmo ambiente, para que atinjam o equilíbrio.
+
+Alguns materiais são isolantes térmicos e tendem a evitar transferência. São importantes para prevenir gasto energético desnecessário e manter sistemas sem troca de calor se necessário.
+
+Para o projeto proposto, é necessário uma temperatura interna entre 2 e 4 graus Celsius para preservar as características desejadas e não danificar o órgão colocado. Além disso, a caixa deve ser isolada termicamente para que minimize ao máximo as trocas de calor e não afete o órgão transportado.
+
+Essa transferência de calor pode ser classificada de três formas diferentes: Condução, convecção e radiação.
+
+\subsection{Condução}
+Ocorre entre corpos que estão em contato físico e está relacionada com a energia cinética, a colisão entre os átomos realiza a transferência de energia cinética (calor) para as moléculas próximas. Com isso, o calor flui do local com temperaturas mais altas para o local com temperatura mais baixa.
+
+A facilidade com que o calor transferido pode ser medido através da condutividade, normalmente, sólidos conduzem melhor que líquidos, e líquidos conduzem melhor do que sólidos.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\cline{1-2}
+Material               & Condutibilidade Térmica (k) \\ \cline{1-2}
+Cobre (puro)           & 339                         \\ \cline{1-2}
+Ouro (puro)            & 317                         \\ \cline{1-2}
+Alumínio (puro)        & 237                         \\ \cline{1-2}
+Ferro (puro)           & 80,2                        \\ \cline{1-2}
+Aço Carbono (1\%)      & 43                          \\ \cline{1-2}
+Aço Inoxidável (18/18) & 15,1                        \\ \cline{1-2}
+Vidro                  & 0,81                        \\ \cline{1-2}
+Plásticos              & 0,2 -- 0,3                  \\ \cline{1-2}
+Água (liquido)         & 0,6                         \\ \cline{1-2}
+
+\end{tabular}
+\caption{Condutividade térmica dos materiais a 300K. Fonte: BENNETT, 2008}
+\label{condutividade térmica}
+\end{table}
+
+\subsection{Convecção}
+
+A convecção ocorre em líquidos ou gases somente. Ocorre pela diferença de densidades, o ar frio é mais denso e tom ao lugar do ar quente, o ar frio lentamente ganha calor e realiza o ciclo novamente.
+
+Existem dois tipos de convecção: a natural (explicada acima) e a forçada, a qual utiliza aspiradores e bombas para fazer o deslocamento do fluído. (BENNETT, 2008; TIPLER, 2009).
+
+\subsection{Radiação}
+
+São ondas eletromagnéticas que se movem na velocidade da luz, por ser a única capaz de percorrer o espaço, é a principal maneira de transferência de calor do Sol com o planeta terra.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{figuras/transferenciadecalor.png}
+\caption{Mecanismos de transferência de calor}
+\end{figure}
+
+\section{Calorimetria}
+A calorimetria é o estudo do calor como energia térmica em trânsito. Com dois corpos em temperaturas diferentes, a transmissão ocorre do corpo mais quente para o mais frio até atingirem o equilíbrio térmico. Uma das medidas mais usadas é a quantidade de calor (Q), ao receber energia térmica, essa quantidade de calor é positiva, ao perder é negativa.
+
+\subsection{Calor Sensível e Latente}
+Um corpo pode receber dois tipos de calor, o latente e o sensível. O calor latente é obtido quando o corpo muda de estado físico por causa dessa transferência, já o calor sensível é apenas mudança na temperatura do corpo.
+
+Podemos representar seus cálculos com a fórmula fundamental da calorimetria e a equação para calcular o calor latente. Que são:
+
+\begin{align}
+Q_S=m \cdot c \cdot \Delta T
+\end{align}
+\begin{align}
+Q_L=m \cdot L
+\end{align}
+
+Onde:
+\begin{itemize}
+\item $Q_S$ = Quantidade de calor sensível (em joules)
+\item m = Massa do corpo em gramas
+\item c = Calor sensível
+\item $\Delta$T = Diferença de temperatura em ºC
+\item $Q_L$ = Quantidade de calor Latente (em joules)
+\item L = Constante de calor latente
+\end{itemize}
+
+\section{Fenômenos termoelétricos}
+A termoelétrica estuda esses fenômenos que associam corrente elétrica com geração de energia elétrica ou térmica. É possível criar uma corrente elétrica e usar essa corrente para controlar um fluxo de aquecimento.
+
+Alguns dos usos mais comuns de um dispositivo termoelétrico são telecomunicações, conversão de energia, fontes alternativas e refrigeração. Podem ter baixa eficiência em metais (mesmo sendo bons condutores térmicos e elétricos), e alta eficiência em semicondutores.
+
+Temos 3 tipos de efeitos termoelétricos, que são efeito de Peltier, de Seebeck e de Thomson.
+
+\subsection{Efeito Seebeck}
+O físico , Thomas Johann Seebeck em 1821 uniu dois matérias condutores ou semicondutores, de diferentes temperaturas, com uma junta de medição, ocorre o aparecimento de uma diferença de potencial que gera uma corrente elétrica. 
+
+Esse princípio é utilizado em termopares, um sensor de temperatura usado com frequência ainda hoje. 
+
+\subsection{Efeito de Peltier}
+Em 1834, o físico francês Jean Charles Athanase Peltier conseguiu observar o inverso do feito de Seebeck, que foi chamado de efeito de Peltier.
+
+Aplicando uma tensão em um circuito elétrico fechado que gera uma corrente que atravessa o corpo formado por condutores ou semicondutores, absorve e libera calor em suas junções, que podem ser trocadas com mudança da direção da corrente.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{figuras/efeitopeltier.png}
+\caption{Representação esquemática da célula de Peltier}
+\end{figure}
+
+Para a junção quente, a corrente elétrica flui do lado positivo para o lado negativo e para a junção fria, a corrente elétrica flui do lado negativo para o positivo. 
+
+A transferência do fluxo de calor para os elementos P e N se dá da seguinte forma: O elemento positivo P absorve calor elevando seu nível de energia que o faz migrar para o lado quente que possui uma menor quantidade de energia. Através de ventiladores, coolers e dissipadores, retira-se calor desse elemento que retorna ao lado P reiniciando o ciclo. (COSTA 2010; SOUZA, 2011; MARQUES, 2011).
+
+\subsection{Efeito Thompson}
+Mais tarde foi William Thompson na Irlanda que descobriu que dependendo do sentido da corrente elétrica poderia poderia produzir frio ou calor.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{figuras/efeitothompson.png}
+\caption{Esquema dos efeitos de Peltier, Seebck e Thompson}
+\end{figure}
+
+\section{Célula de Peltier}
+
+A célula de peltier é uma pastilha termoelétrica muito usada na area da eletronica, automotiva, militar e industrial. Suas principais vantagens sao o fácil controle do calor liberado, baixo custo, não libera gás fréon, tamanho reduzido e boa durabilidade.
+
+Para entender melhor o funcionamento de uma pastilha peltier temos a seguinte imagem.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{figuras/peltier1.png}
+\caption{Esquema do caminho da corrente na célula de Peltier}
+\end{figure}
+
+A célula é formada por semicondutores de tipo N e P e a corrente caminha de acordo com a imagem.
+
+As faces das célula são formadas por material cerâmico, o que ajuda no isolamento e na condutibilidade térmica. Quando aplicamos uma diferença de potencial, de acordo com o efeito de Peltier, é gerada uma corrente corrente que cria um gradiente de temperatura entre as faces.
+
+Alguns cuidados devem ser tomados ao montar uma placa de Peltier, a utilização de coolers o ventiladores é essencial para que não ocorra o superaquecimento das células o esquema da imagem a seguir também é recomendado, inclusive utilizando uma pasta térmica para otimizar a transferência de calor.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{figuras/peltier2.jpg}
+\caption{Esquema de montagem da célula de Peltier}
+\end{figure}
+
+Outro cuidado é observar a quantidade de calor máximo que a pastilha escolhida pode transferir ao aplicar seu potencial e corrente máximos, o que produzirá a maior diferença de temperatura. 
+
+Um método para aumentar a transferência de calor é colocar mais de uma pastilhas uma sobre a outra,chamado de multi-estágios, a parte quente de uma das pastilhas na parte fria da outra. Porém a diferença de temperatura não pode passar de 60 graus Celsius.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{figuras/peltier3.png}
+\caption{Célula em estágio simples (a) e multi-estágios (b)}
+\end{figure}
