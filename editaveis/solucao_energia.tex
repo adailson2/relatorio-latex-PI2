@@ -1,179 +1,258 @@
 \section{Sistema de Refrigeração}
-A refrigeração da câmara tem como base o uso da pastilhas termo elétricas, denominadas de módulos Peltier que são pequenas unidades que utilizam tecnologia de matéria condensada para operarem como bombas de calor. Esta pastilha é feita de material semicondutor e é capaz de causar um diferença de temperatura nas suas faces quando submetida à uma tensão.
+O sistema de refrigeração é uma etapa crucial do projeto da transportadora de órgãos, atendendo ao requisitos definidos o recipiente em que o órgão é armazenado e transportado deve se manter refrigerado durante o período de transporte. Refrigeração pode ser definida como todo processo de remoção de calor, redução e manutenção de temperatura de um espaço ou material abaixo da temperatura ambiente (JÚNIOR, 2003). Portanto, a partir da análise das características da demanda de refrigeração e do conhecimento para a construção e integração do produto, foram levantadas duas opções de resfriamento:
+	\begin{itemize}
+		\item Refrigeração Termoelétrica - Células Peltier;
+		\item Refrigeração por Compressão Mecânica de Vapor - Compressor.
+	\end{itemize}
+	
+	O refrigerador termoelétrico utiliza-se de dois materiais distintos, como pares termoelétricos convencionais. Há duas junções entre esses dois materiais em um refrigerador termoelétrico, uma está localizada no espaço refrigerado e a outra no meio ambiente. Quando se aplica uma diferença de potencial, a temperatura da junção que se encontra no espaço refrigerado diminui e a temperatura da outra junção aumenta. Operando em regime permanente, ocorrerá uma transmissão de calor do espaço refrigerado para a junção fria. A outra junção se encontrará a uma temperatura acima à ambiente e haverá então uma transmissão de calor para o local.
+	
+	A utilização dos módulos de peltier tem as seguintes vantagens: 
+	
+	\begin{itemize}
+		\item Ausência de peças móveis e  gases refrigerantes  para refrigeração; 
+		\item Aquece e resfria dependendo apenas da polaridade da alimentação;
+		\item Ausência de barulho e vibrações;
+		\item Tecnologia 100 por cento estado sólido; 
+		\item Tamanho da solução reduzido e alta durabilidade;
+		\item Funcionam em qualquer orientação com / sem gravidade diferente dos refrigeradores baseados em compressores.
+		
+	\end{itemize}
+	
+	Já o sistema de refrigeração por compressão mecânica de vapor funciona simplificadamente da seguinte forma, o fluido refrigerante que percorre um circuito fechado para absorver e remover o calor de um espaço que necessita de arrefecimento. Em qualquer processo de refrigeração, ocorre a transferência de calor de um ambiente para outro com a ajuda de um agente externo, que no caso deste sistema é o compressor (FERRAZ, 2008).
+	
+	Ao se optar por este tipo de sistema de refrigeração, têm-se como vantagens:
+	\begin{itemize}
+		\item Baixo consumo;
+		\item Maior eficiência.
+	\end{itemize}
 
-\subsection{Estrutura do conjunto de refrigeração}
-Pelas especificações do projeto em ser um ambiente de refrigeração para o transporte de órgãos para transplante, a face de menor temperatura da célula peltier deve estar em contato com o ar de dentro da câmara para que assim ocorra o seu resfriamento. Já o lado de maior temperatura da célula peltier deve estar em contato com o ar circundante no ambiente externo, tornando assim a troca de calor entre as duas regiões mais eficaz.
+	Em um primeiro momento optou-se pela refrigeração termoelétrica, realizaram-se vários testes de configurações para a célula peltier, entretanto não obtivemos resultados satisfatórios com relação à temperatura atingida dentro da câmara a ser refrigerada, apesar de conseguirmos uma temperatura adequada na face da módulo termoelétrico. A figura abaixo apresenta alguns dos testes realizados.
+	
+	
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[scale = 0.8]{figuras/teste_Peltier.JPG}
+			\caption{Testes iniciais utilizando a célula Peltier}
+		\end{center}
+	\end{figure}
+	
+	Devido aos resultados insatisfatórios, optou-se então pelo sistema por compressão mecânica de vapor, tendo como fonte de fornecimento uma bateria estacionária. O funcionamento do sistema de refrigeração construído está expresso na figura a seguir:
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[scale = 0.75]{figuras/esquematico_compressor.JPG}
+			\caption{Diagrama esquemático do sistema com compressor}
+		\end{center}
+	\end{figure}
+	
+	\subsection{Dimensionamento do Sistema}
+		\subsubsection{Cálculo de Carga Térmica}
+		Os cálculos da carga térmica objetivam determinar a quantidade de calor que deverá ser removida da caixa transportadora de órgãos, para que se atinja as condições adequadas para o armazenamento e transporte do órgão.
+		
+		Para desenvolver os cálculos da carga térmica do sistema, foram levantados os seguintes dados do sistema:
+		\begin{enumerate}
+			\item Dimensões da caixa interna (que contém o órgão):
+				\begin{itemize}
+					\item Altura: 0,2 m.
+					\item Largura: 0,25 m.
+					\item Profundidade: 0,25 m.
+				\end{itemize}
+			\item Dimensões da caixa externa:
+				\begin{itemize}
+					\item Altura: 0,3 m
+					\item Largura: 0,3 m.
+					\item Profundidade: 0,3 m.
+				\end{itemize}
+			\item Capacidade (volume) da caixa térmica: 0,0027 $m^3$ (27 L)
+			\item Temperatura interna de operação: $2^oC$
+			\item Temperatura externa à caixa:$ 35^oC$.
+			\item Material de isolamento térmico: Poliestireno expandido.
+			\item Espessura do material de isolamento térmico: 0,07 m.
+			\item Tempo de resfriamento: 45 minutos.
+		\end{enumerate}
+		
+		\subsubsection{Cálculo da energia e potência térmica do órgão:}
+		Este cálculo se refere à quantidade de calor associada ao órgão e pode ser calculada pela equação:
+		\begin{equation}
+		Q = m \times c \times \Delta T
+		\end{equation}
+		
+		Sendo: 
+		$Q$ = energia térmica (KJ)
+		
+		$m$ = massa (g)
+		
+		$c$ = calor específico $(\frac{cal}{g^oC)}$
+		
+		$\Delta T$ = Variação da temperatura $(^oC)$
+		
+	Logo, a energia térmica do órgão é:
+	$$
+	Q_{órgão} = 13,8 KJ
+	$$	
+	
+	Logo, a energia térmica do órgão é:
+	$$
+	P_{órgão} = \frac{13,8}{\Delta t} \approx 5,1 W
+	$$
+	
+	\subsubsection{Cálculo da energia e potência térmica da embalagem com solução Viaspan na qual o órgão está contido}
+	Aplicando a equação para a energia térmica, tem-se:
+	$$
+	Q = 500  \times 0,97 \times 33 \approx 67 KJ
+	$$
+	Aplicando a equação para a potência térmica, tem-se:
+	$$
+	P = \frac{67 KJ}{2700} \approx 24,8W
+	$$
+	
+	\subsection{Cálculo da energia e potência térmica do alumínio da caixa interna}
+	
+	Aplicando a equação para a energia térmica, tem-se:
+	$$
+	Q_{aluminio} = 3000 \times 0,22 \times 33 \approx 91,2 KJ
+	$$
+	
+	Aplicando a equação para a energia térmica, tem-se:
+	$$
+	P_{aluminio} \approx 33,8
+	$$
+	
+		A soma das potências térmicas do órgão, da embalagem contendo a solução Viaspan e do alumínio fornecem a potência térmica total do interior da caixa, necessária ao resfriamento.
+		
+		A caixa externa também está envolvida nos cálculos de potência térmica devido a transferência de calor que ocorre entre a vizinhança e o sistema.
+		
+		\subsubsection{Cálculo da resistência térmica $(Rt)$ e o coeficiente global de transferência de calor (U)}
+		
+		A resistência térmica é calculada a partir da equação
+		
+		$$
+		R_t = \frac{L_{isopor}}{K_{isopor}}
+		$$
+	
+	Sendo:
+	$R_t$ = resistência térmica $\frac{m^2K}{W}$
+	
+	L = espessura (m)
+	
+	K = condutibilidade térmica $\frac{W}{mK}$
+	
+	Aplicando a equação, tem-se:
+	$$
+	R_t = \frac{0,7}{0,007} \approx 2\frac{m^2K}{W}
+	$$
+	
+	O coeficiente global de transferência de calor é calculado a partir da equação.
+	\begin{equation}
+	U = \frac{1}{R_t}
+	\end{equation}
+	Aplicando a equação acima, tem-se:
+	$$
+	U = 0,5 \frac{W}{m^2 K}
+	$$
+	
+	A quantidade de calor que atravessa as paredes da caixa externa é dada pela equação a seguir:
+	\begin{equation}
+	Q = U \times A \times \Delta T
+	\end{equation}
+	
+	Aplicando a equação, considerando-se a área total da caixa, tem-se:
+	
+	$$
+	Q = 0,5 \times 0,54 \times 33K
+	$$
+	Por fim, a potência térmica total do sistema é calculada pela soma da potência térmica interna da caixa junto a quantidade de calor que atravessa as paredes da caixa externa.
+	
+	Desta forma, conclui-se que o sistema de refrigeração deve suprir a potência de 72,61 W para o resfriamento às condições desejadas.
+	
+	\subsection{Evaporador}
+	Para determinar a área do trocador de calor, podemos utilizar o Método de  Média Logarítmica das Diferenças de Temperatura que é dado pela seguinte relação:
+	
+	\begin{equation}
+	Q = k \times A \times \Delta T_{ln}
+	\end{equation}
+	
+	Onde:
+	
+	Q - taxa de transferência térmica 
+	
+	K - coeficiente de transferência de calor global
+	
+	A - área de superfície de transferência de calor
+	
+	$\Delta T_{ln}$
+	
+	
+Como o valor do coeficiente global de transferência de calor (K) pode variar, conforme a tabela abaixo,
+	\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale =1]{figuras/Tabela_K}
+	\caption{Tabela com os possíveis valores de K}
+	\end{center}
+	\end{figure}
+	
+	e considerando o pior dos casos de transferência de calor, obtemos um valor de 48,83 para um evaporador de serpentina e carcaça, que é o nosso caso.
+	
+	A capacidade frigorífica ($Q_0$) é a quantidade de calor por unidade de tempo retirada do meio que se quer resfriar (produto) através do evaporador do sistema frigorífico. Para o sistema operando em regime permanente desprezando-se a variação de energia e potencial, pela primeira lei da termodinâmica obtém-se: 
+	
+	\begin{equation}
+	Q=m_f \times (h_1-h_4)
+	\end{equation}
 
-Em vista disso, serão utilizados dois dissipadores de calor, que estarão em contato direto com uma pasta térmica, e esta irá em contato com o módulo peltier. Logo acima das colmeias de cada dissipador haverá um cooler, que tem como principal objetivo melhorar a circulação de ar pelos dissipadores, consequentemente tornar a troca de calor do sistema ainda mais eficiente.
-
-Na figura abaixo é apresentada uma visão explodida da solução de refrigeração:
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[scale = 1]{figuras/Sistema_Ref.JPG}
-\caption{Visão explodida do sistema de refrigeração}
-\end{center}
-\end{figure}
-
-O desempenho dos módulos peltier é diretamente proporcional às grandezas que o controlam. Devido a esta característica, para um projeto o fabricante disponibiliza um conjunto de curvas que irão permitir ao projetista determinar os limites seguros de operação do sistema de refrigeração. Algumas combinações dessas grandezas podem tornar o sistema que possui um comportamento ótimo para um desempenho inadmissível. 
-
-\begin{table}[H]
-\begin{center}
-\caption{Dados de Desempenho da Célula Peltier. FONTE: Folha de Dados TEC-12706 – HB Eletronic Components.}
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Temperatura do lado quente (ºC)} & 25 & 50  \\
-\hline
-\textbf{$Q_{MAX}$ (W)} & 50 & 57 \\
-\hline
-\textbf{$\Delta T_{MAX}$ (ºC)}& 66 & 75 \\
-\hline
-\textbf{$I_{MAX}$ (A)} & 6,4 & 6,4 \\
-\hline
-\textbf{$V_{MAX}$ (V)} & 14,14 & 16,4 \\
-\hline 
-\textbf{Resistência do Módulo ($\Omega$)} & 1,98 & 2,3\\
-\hline
-\end{tabular}
-
-\end{center}
-\end{table}
-\subsection{Dimensionamento do sistema de refrigeração Peltier}
-O dimensionamento do sistema de refrigeração por Peltier irá ser desenvolvido de modo sistemático, tendo como referência a definição de uma carga térmica e a diferença de temperatura quente/frio (DT) [1]. Cabe alertar que serão determinados pontos ótimos de operação e uma estimativa de desempenho para o sistema uma vez que o sistema tem um comportamento não-linear. 
-
-\subsubsection{Determinação das temperaturas de trabalho}
-Serão definidas nesta etapa as temperaturas de trabalho, afim de:
-\begin{itemize}
-	\item Fazer a escolha do módulo peltier;
-    \item Escolher o dissipador de calor para o módulo;
-    \item Calcular as cargas térmicas do projeto. 
-\end{itemize}
-Portanto, as temperaturas de trabalho estão assim estabelecidas:
-\begin{table}[H]
-\caption{ Temperaturas de trabalho do módulo Peltier}
-\begin{tabular}{c|c|c}
-     &  \textbf{Temperatura (ºC)} & \textbf{Observação}\\
-   \hline
-   $T_{ambiente}$ & 35 & Temperatura ambiente em que o dispositivo vai trabalhar \\
-   $T_Q$ & 40  & 
-Temperatura de trabalho da face quente - dissipador \\
-$T_F$ & 0 & Temperatura de trabalho da face fria \\
-$\Delta T$ & 40 & 
-Os limites do módulo estão ligados a esta variável\\
-\hline
-\end{tabular}
-\end{table}
-
-\subsubsection{Determinação da Carga Térmica}
-Existem dois tipos de carga térmica que o sistema de refrigeração vai estar submetido, a carga térmica ativa que é a energia térmica dissipada pelo dispositivo que estará sendo refrigerado, e a carga térmica passiva, a qual é a energia térmica proveniente de radiação, convecção ou condução, ou ainda a combinação dos dois. 
-
-\begin{equation}
-Q_{Térmica} = Q_{Radiação}+Q_{Condução}+Q_{Convecção}+Q_{Ativa}
-\end{equation}
-Descobrir e minimizar as cargas térmicas atuantes no sistema nos permitirá alcançar o nível de refrigeração requisitado e a potência necessária para alcançá-la. A seguir serão estimadas as cargas ativa e passiva do sistema.
-\begin{itemize}
-\item Carga Térmica Ativa
-
-Esta  fonte é relacionada à presença de dispositivos, no caso em questão à presença do cooler, na região a ser refrigerada e esta carga é representada pela potência dissipada por efeito Joule:
-\begin{equation}
-Q_{Ativa} = V \times I
-\end{equation}
-Onde:
-
-$Q_{Ativa}$ --- Potência ativa, em Watts;
-
-V --- Tensão de alimentação do dispositivo (12 V);
-
-
-I --- Corrente no dispositivo (0,15 A).
-
-O que leva a concluir que a carga térmica ativa é de aproximadamente 1,8 Watts.
-
-\item Carga Térmica Passiva
-
-Para este projeto o cálculo da carga térmica de radiação será desprezado, pois o sistema não trabalha com altas temperaturas à vácuo.
-
-Para o cálculo da carga térmica passiva será utilizada a combinação dos fenômenos de condução e convecção:
-\begin{equation}
-	Q_{Passivo}= \frac{A \times \Delta T}{\frac{x}{k} + \frac{1}{h}}
-\end{equation}
-Para o cálculo da área externa foram utilizadas as dimensões externas da câmara de $6\times(300 \times 300)\times 10^{-6}=0,54mm^2$. 
-
-Considerando duas possibilidades de isolantes térmicos que podem ser utilizados no projeto (Poliestireno Expandido e Espuma de Poliuretano), obtêm-se:
-
-Poliestireno expandido (EPS) --- Isopor: 0,045 a 0,034 $\left[\frac{W}{m.K}\right]$ e espessura x=0,02m.
-
-Espuma de poliuretano: 0,023$\left[\frac{W}{m.K}\right]$ e espessura 0,03 m.
-
-Foi utilizado o coeficiente de transferência de calor por convecção do ar por convecção forçada: $h = 250 \left[\frac{@}{M^2.ºC}\right] $
-
-Obtendo assim, duas cargas térmicas passivas:
-
-$Q_{Passiva, Isopor}$ = 24,73 W
-
-$Q_{Passiva, Espuma} $ = 26,51 W
-
-Como as duas cargas são comparativamente próximas, para fins práticos de cálculo será escolhida a maior dentre elas.
-
-Logo, $Q_{Térmica}$ = 28,31 W.
-
-\end{itemize}
-
-\subsubsection{Determinação de Estágios para o Módulo}
-Com base nas definições de temperaturas realizadas anteriormente, pode-se determinar portanto o número de estágios do módulo necessários para que o $\Delta T$ seja atingido com segurança.
-
-Com base nas definições de temperaturas realizadas anteriormente, pode-se determinar portanto o número de estágios do módulo necessários para que o T seja atingido com segurança.
-
-\begin{table}[H]
-\begin{center}
-\caption{Diferença máxima de temperatura para módulos simples e de dois e três estágios}
-\begin{tabular}{c||c}
-\textbf{Número de Estágios} & \textbf{$\Delta T Max$} 1 atm de $N_2$\\
-\hline \hline
-1 & 64\\
-2 & 84 \\
-3 & 95\\
-\hline \hline
-\end{tabular}
-\end{center}
-\end{table}
-
-\subsubsection{ Escolha da Célula de Peltier}
-Com base no método dimensionamento por carga térmica, é necessária uma célula de Peltier de 28,31  W para climatizar um compartimento de transporte.
-
-Para esse projeto então, será utilizada para fazer a função de climatização do compartimento de transporte de órgãos uma célula de Peltier, cujo modelo adotado foi o TEC1-12706, por ser de fácil acesso no mercado e suprir as necessidades do projeto, conforme os cálculos de dimensionamento por carga térmica realizados. Este modelo possui comprimento e largura de 4cm e altura de 3,2mm. A corrente elétrica máxima que esta célula de peltier pode suportar é de 6 Ampères, a tensão máxima é de 15,4V e a potência máxima é de 63W. 
-
-\subsubsection{Controle do Cooler}
-
-Para controlar a velocidade do cooler será utilizado um controle PWM de forma em que o tempo em que a onda fica em nível lógico alto em relação a todo o período da onda determina a porcentagem de potência entregue ao sistema, e forma a ajustar o consumo de energia para evitar que o consumo de energia seja muito alto desnecessariamente.
-
-\subsubsection{Controle da Célula Peltier}
-
-Da mesma forma que  o cooler o consumo do peltier será estimado pelo controle via PMW, como no caso do peltier se faz necessário o uso de uma tensão de 12V será usado um controle de interrupção simples utilizando transistor MOSFET para atuar como chave que será controlada pelo próprio PWM.
-
-\subsection{Requisitos do Sistema}
-
-Com vistas à concepção e validação da solução, foram definidos os requisitos relativos ao subsistema de alimentação e refrigeração do produto:
-
-\subsubsection{Requisitos Funcionais}
-O sistema de refrigeração deve ser capaz de:
-\begin{itemize}
-\item Refrigerar uma câmara hermeticamente;
-\item sistema deve ser capaz de estabilizar a temperatura interna da câmara de forma que o órgão fique com temperatura entre 2ºC e 4ºC;
-\item O sistema deve ser capaz de manter a temperatura da câmara uniforme.
-
-\end{itemize}
-\subsubsection{Requisitos Não-Funcionais}
-O sistema de refrigeração deve ser capaz de:
-\begin{itemize}
-\item Utilizar dissipadores de calor e células de peltier;
-Ser eficiente energeticamente, consumindo o mínimo de consumo possível através de um controle de potência;
-\item A câmara a ser refrigerada deve ter um volume máximo de 4 litros;
-\item O sistema deve ser capaz de refrigerar o sistema de forma satisfatória durante um período máximo de 48 horas.
-\end{itemize}
-
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[scale =1]{figuras/Volume_Evaporador}
+			\caption{Volume de controle aplicado ao evaporador e a indicação do processo }
+		\end{center}
+	\end{figure}
+	
+	$Q_0$ é a capacidade frigorífica  do ciclo operando em temperaturas $TC$ e $T_0$ para $m_f$, entalpia específica $h_1$ e  $h_4$. O fluxo de massa de refrigerante (mf) deve ser mantido pelo compressor. Normalmente se conhece a capacidade frigorífica que deve ter o sistema de refrigeração, que deve ser igualada à carga térmica, se estabelecermos o ciclo de refrigeração que deve operar o sistema podendo assim determinar o fluxo de massa e, consequentemente, o compressor necessário ao sistema (JÚNIOR, 2005).
+	
+	 A quantidade de calor retirado por um quilo de refrigerante através do evaporador é denominada “Efeito Frigorífico - E.F.”, isto é :
+	 \begin{equation}
+	 EF = h_1-h_4
+	 \end{equation}
+	 Então, substituindo pelos dados coletados:
+	 
+	 $$
+	 m_f=9,81 \frac{Kg}{h}
+	 $$
+	 \subsection{Compressor}
+	 Para o dimensionamento do compressor, é necessário calcular a potência necessária para fazer o fluido refrigerante circular pela serpentina. Essa potência foi encontrada a partir da formulação: 
+	 
+	 \begin{equation}
+	 W_c = m_f \times (h_2 - h_1)
+	 \end{equation}
+	 
+	 Sendo:
+	$ W_c$ -  potência teórica do compressor); 
+	
+	 $m_f$ - fluxo de massa refrigerante;
+	 
+	 $h_2$ -  entalpia no início da compressão;
+	 
+	 $h_1$ - entalpia no final da compressão;
+	 
+	 \section{Estrutura do Conjunto de Refrigeração}
+	 Após o dimensionamento do Sistema de Refrigeração, ocorreu a montagem do sistema final. O sistema dimensionado foi acoplado a estrutura geral do projeto, conforme demonstrado na Figura abaixo
+	 	\begin{figure}[H]
+	 		\begin{center}
+	 			\includegraphics[scale =1]{figuras/Estrutura_refrigeracao}
+	 			\caption{Estrutura do sistema de refrigeração }
+	 		\end{center}
+	 	\end{figure}
+	 O compressor escolhido que satisfazia todas as necessidades dimensionadas, possui as seguintes especificações:
+	 
+	 	 	\begin{figure}[H]
+	 	 		\begin{center}
+	 	 			\includegraphics[scale =1]{figuras/caracteristicas}
+	 	 			\caption{Especificações Técnicas do Compressor.
+	 	 				 }
+	 	 		\end{center}
+	 	 	\end{figure}
+	 	
 \section{Sistema de Alimentação}
-As fontes de energia que serão utilizadas para alimentar o produto, incluindo o sistema de refrigeração e os componentes elétricos e eletrônicos, são a rede elétrica comum brasileira e um banco de baterias. O banco de baterias será dimensionada afim de manter os subsistemas em perfeita operação durante o período solicitado de 48 horas.
+As fontes de energia que serão utilizadas para alimentar o produto, incluindo o sistema de refrigeração e os componentes elétricos e eletrônicos, são a rede elétrica comum brasileira e um banco de baterias. O banco de baterias será dimensionada a fim de manter os subsistemas em perfeita operação durante o período solicitado de 48 horas.
 
 \subsection{Diagrama do Sistema}
 A Figura a seguir apresenta o diagrama elétrico simplificado do produto. Ele representa o circuito de alimentação utilizado, desde a fonte de energia --- rede elétrica padrão --- até o uso final em seus componentes elétricos e eletrônicos.  É importante ressaltar que este diagrama será refinado ao longo dos pontos de controle, pois o  sistema pode ser retificado para melhor atender às condições de contorno que forem encontradas durante a execução do projeto.
@@ -187,10 +266,19 @@ A Figura a seguir apresenta o diagrama elétrico simplificado do produto. Ele re
 
 O sistema foi dimensionado com um fator de segurança elevado, pois a proposta de projeto é de um sistema de acondicionamento de órgãos para transplante. Sendo assim, o nível de confiabilidade do produto deve ser extremamente alto, para isso todo o sistema de alimentação foi dimensionado relacionando o sistema ao tempo de operação necessário ao transporte e diretamente ao consumo de energia advinda da bateria.
 
-\subsection{Baterias}
-Baterias têm a finalidade de armazenar energia e liberá-la em determinada periodicidade, e de forma controlada. Sua escolha deve ser adequada às necessidades de consumo energético do projeto, e considera os dados de corrente elétrica e tensão. Para a seleção da bateria adequada deve-se estudar se ela é capaz de armazenar a energia total demandada às necessidades do projeto, e se ela consegue entregar toda a energia necessária ao funcionamento do equipamento.
 
-Dentre as opções de bateria disponíveis no mercado, optou-se pela bateria estacionária. Sua vida útil é de aproximadamente 5 anos, devido à sua composição com materiais internos mais sobres se comparada às baterias automotivas, por exemplo. Podem, também, suportar descargas de até 80\% de sua capacidade, sem prejudicar sua vida útil, e resistem a ciclos de carga ou descarga mais profundos. Tais características proporcionam maior confiabilidade ao funcionamento do projeto pelo uso da bateria estacionaria.
+\subsection{Dimensionamento das Baterias}
+	Baterias têm a finalidade de armazenar energia e liberá-la em determinada periodicidade, e de forma controlada. Sua escolha deve ser adequada às necessidades de consumo energético do projeto, e considera os dados de corrente elétrica e tensão. Para a seleção da bateria adequada deve-se estudar se ela é capaz de armazenar a energia total demandada às necessidades do projeto, e se ela consegue entregar toda a energia necessária ao funcionamento do equipamento. O processo de dimensionamento do banco de baterias deve ser realizado inicialmente e depois sucessivamente aperfeiçoado, em função dos demais dimensionamentos e ajustado em função dos custos, disponibilidade de mercado, entre outros.
+
+	O processo de dimensionamento deve seguir algumas etapas, a primeira delas é definir o tipo de bateria a ser utilizado. Dentre as opções de bateria disponíveis no mercado, optou-se pela bateria estacionária. Sua vida útil é de aproximadamente 5 anos, devido à sua composição com materiais internos mais sobres se comparada às baterias automotivas, por exemplo. Podem, também, suportar descargas de até 80\% de sua capacidade, sem prejudicar sua vida útil, e resistem a ciclos de carga ou descarga mais profundos. Tais características proporcionam maior confiabilidade ao funcionamento do projeto pelo uso da bateria estacionaria.
+	
+	Após a escolha do tipo de bateria, deve ser analisada a profundidade de descarga com que se vai trabalhar. Quanto mais profundos os ciclos de descarga-carga, menor a vida útil da bateria. Ou seja, reduzir-se a capacidade da bateria, gasta-se menos no início, porém as baterias durarão menos e os gastos com reposição serão maiores. Um valor usado para essa profundidade de descarga para ciclos diários com baterias de chumbo-ácido é de 10\% a 20\%. Para ciclos esporádicos, podem ser utilizados ciclos mais profundos, da ordem de 60\%. 
+	
+	A capacidade do banco de baterias em Ah pode ser calculada conforme a expressão abaixo: 
+	
+	\begin{equation}
+	Capacidade(Ah) = \frac{Consumo(\frac{Wh}{dia}) \times Autonomia(dias)}{V_{Baterias}(V)\times profundidade(pu)}
+	\end{equation}
 
 O dimensionamento da bateria requer inicialmente a relação de potência demandada para suprir as necessidades dos componentes elétricos do projeto, como mostra a tabela a seguir:
 
@@ -206,30 +294,43 @@ O dimensionamento da bateria requer inicialmente a relação de potência demand
    \hline
   \textbf{PROTETOR } &12 &26,5m &318m \\
    \hline
-  \textbf{CONTROLADOR PELTIER} &12 & 2,4& 28,33 \\
+  \textbf{COMPRESSOR $\frac{1}{10}HP$} &12 & 2,4& 28,33 \\
    \hline
-  \textbf{CONTROLADOR COOLER} &12 &260,9m &3,6  \\
+  \textbf{MICRO MOTOR} &12 &260,9m &3,6  \\
    \hline
-  \textbf{MÓDULO PWM} &12 &100m & 1,2 \\
-   \hline
+
 \end{tabular}
 \end{table}
 
-Conhecer a capacidade da bateria e o tempo de uso do equipamento também são necessários ao dimensionamento.
+Ao somar todas as cargas necessárias, o total foi de 229,819 Wh, já o consumo de corrente fica em 3,5365 A/h. O principal problema é o alto valor de partida do motor-compressor, o que é chamado de corrente de pico, no caso do motor-compressor utilizado, a corrente pode atingir um o valor entre 2-3 Ampères, o que requer atenção ao dimensionar a bateria para que ela suporte esse aumento inicial.
 
-O dimensionamento da bateria foi feito usando as seguintes equações:
-\begin{equation}
-Consumo = (P) \times (T)
-\end{equation}
-Onde: 
 
- P --- Potência em KW;
- T --- Tempo em horas.
+Com relação a profundidade da descarga no final da autonomia (pu) - utilizamos 0,6 (descargas mais profundas significam vida útil menor para a bateria e menos profundas um investimento inicial maior). Sendo que o consumo total é obtido a partir do levantamento das cargas, a autonomia de 5 horas.
 
-%%%%%%%%%%%%%% REVER ESSA PARTE
-De acordo com o estimado de carga para o projeto até o momento, teremos a potência em watt de aproximadamente 58,44W, autonomia de 48h e uma bateria com 12V. 
+Logo, 
+$$
+Capacidade \approx 33,2439 Ah
+$$
 
-De acordo com o estimado de carga para o projeto até o momento, encontra-se a potência em Watt de 58,44w, o tempo de 48h e uma bateria com 12V  Obtendo valores de, respectivamente: 2,805 $KWh$ e 233,76 $Ah$. Dessa forma, considerando que a tabela acima considera sempre a pior das hipóteses, o valor prático poderá ser redimensionado, de forma que os testes serão iniciados a partir da ligação de 3 baterias de 70 Ah em paralelo.
+
+\subsection{Dimensionamento do Inversor}
+Inversores são conversores estáticos que, segundo Matakas Jr. E Komatsu (2011) transformam corrente ou tensão de forma contínua para a alternada. Muitos equipamentos operam em corrente/tensão contínua, sendo que a rede elétrica opera em corrente/tensão contínua. Portanto, a maneira mais simples de se trabalhar sem necessidade de mudanças drásticas em nenhum dos dois sistemas é se utilizar um inversor.
+
+Este equipamento pode ser monofásico ou trifásico, sendo que o modelo utilizado no projeto será monofásico, e irá converter 12V da bateria que alimenta o sistema para 220V, valor de tensão que os outros componentes do sistema trabalham. Neste caso, com apenas duas chaves eletrônicas e uma fonte de tensão CC dividida é possível obter o inversor desejado.
+
+Os inversores podem operar com duas tecnologias, senóide modificada ou senóide pura. No primeiro caso, formam uma onda quadrática, aproximando-se da senoidal AC, bom custo x benefício e pode ser aplicado na maioria dos casos, exceto para motores. O segundo caso pode ser usado como suprimento de energia AC em qualquer sistema, o que difere é o valor e o tamanho.
+
+Um inversor bem dimensionado tem a potência maior que o consumo dos equipamentos para evitar que este trabalhe sempre em máxima potência,em suma um inversor é projetado em 3 estágios, oscilador, driver de corrente e transformador.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale = 0.75]{figuras/dim_inversor.JPG}
+		\caption{ Diagrama Elétrico Preliminar}
+	\end{center}
+\end{figure}
+
+Em primeiro lugar o oscilador transforma a corrente contínua em uma onda quadrada de 60Hz, que precisa ser adequada para uma onda senoidal, para isso é utilizado um filtro passa faixa centrado em 60Hz para eliminar as harmônicas indesejadas e obter uma onda senoidal mais eficaz possível. Entretanto, a saída do oscilador possui uma corrente muito baixa, por isso é necessário um ganho de corrente, para que seja entregue uma potência satisfatória na entrada do primário do transformador. Como a potência requerida é muito alta, se faz necessário que sejam inseridos vários transistores em paralelo para aumentar o ganho de corrente.
+
+Na última fase o transformador faz a elevação da tensão para 220V que é a tensão necessária para ligar o compressor.
 
 \subsection{Requisitos}
 Com vistas à concepção e validação da solução, foram definidos os requisitos relativos ao subsistema de alimentação e refrigeração do produto:
