@@ -27,7 +27,7 @@ A arquitetura de software implementada consiste no modelo cliente-servidor. No s
 			
 			A caixa transportadora acessará a API para fornecer as leituras dos sensores de localização, temperatura, fechamento e os dados do transporte. A API tratará de armazenar esses dados no banco através dos endpoints configurados. A partir daí o sistema WEB pode recuperar esses dados com chamadas nos endpoints da API. 
 			
-			Portanto a caixa transportadora servirá somente como interface de inserção de dados enquanto o WEB app funcionará como inserção e recuperação. A API foi documentada na plataforma POSTMAN que automatiza e testa os endpoints configurados\footnote{Link para a documentação: \href{https://documenter.getpostman.com/view/579285/transorg/6tXcSQ7}{https://documenter.getpostman.com/view/579285/transorg/6tXcSQ7} }. 
+			Portanto a caixa transportadora servirá somente como interface de inserção de dados enquanto o WEB app funcionará como inserção e recuperação. A API foi documentada na plataforma POSTMAN que automatiza e testa os endpoints configurados\footnote{Link para a documentação: \href{https://documenter.getpostman.com/view/579285/transorg/6tXcSQ7}{https://documenter.getpostman.com/view/579285/transorg/6tXcSQ7} Link para o repositório: \href{https://github.com/TransportadoraOrgaos/restfull-api}{https://github.com/TransportadoraOrgaos/restfull-api}}. 
 			
 			A seguir a tela da ferramenta com a api configurada:
 			
@@ -36,14 +36,9 @@ A arquitetura de software implementada consiste no modelo cliente-servidor. No s
 				\includegraphics[width=16cm]{figuras/api_software.JPG}
 				\caption{API do Sistema}
 			\end{figure}
-		
-			Para organização e controle do código da API, foi utilizado o GitHub\footnote{Link para o repositório: \href{https://github.com/TransportadoraOrgaos/restfull-api}{https://github.com/TransportadoraOrgaos/restfull-api}}:
+	
 			
-			\begin{figure}[H]
-				\centering
-				\includegraphics[width=16cm]{figuras/git_rest_api.png}
-				\caption{Repositório da API}
-			\end{figure}
+			
 			
 			
 			
@@ -150,7 +145,7 @@ A arquitetura de software implementada consiste no modelo cliente-servidor. No s
 
 \subsubsection{Integração contínua}
 
-Para o desenvolvimento da aplicação web, foi estabelecido um fluxo de trabalho conforme ilustrado pela figura \ref{integra_continua}. Para cada desenvolvedor, foi criado uma branch para codificar, rodar os testes automatizados, realizar o commit e dar o push. A cada novo push, era criado uma nova build no travis da branch correspondente. Quando a branch atingia um nível aceitável, o desenvolvedor realizava o merge com a branch development. Uma nova bateria de testes era rodada nessa branch. Ao realizar o push, além de ser criada uma nova build no Travis, era feito o deploy em uma aplicação 'transorg-dev' no Heroku. Quando a branch development atingia um nível estável, era feito um pull request na master. Todos os desenvolvedores deveriam avaliar o pull request antes do merge ser realizado. Uma vez realizado o merge e o push da master, além de ser criado uma nova build no Travis, era feito um deploy na aplicação 'transorg' no Heroku.
+Para o desenvolvimento da aplicação web, foi estabelecido um fluxo de trabalho conforme ilustrado pela figura \ref{integra_continua}. Para cada desenvolvedor, foi criado uma branch para codificar, rodar os testes automatizados, realizar o commit e dar o push. A cada novo push, era criado uma nova build no travis da branch correspondente. Quando a branch atingia um nível aceitável, o desenvolvedor realizava o merge com a branch development. Uma nova bateria de testes era rodada nessa branch. Ao realizar o push, além de ser criada uma nova build no Travis, era feito o deploy em uma aplicação 'transorg-dev' no Heroku. Quando a branch development atingia um nível estável, era feito um pull request na master. Todos os desenvolvedores deveriam avaliar o pull request antes do merge ser realizado. Uma vez realizado o merge e o push da master, além de ser criado uma nova build no Travis, era feito um deploy na aplicação 'transorg' no Heroku \footnote{Link para o repositório: \href{https://github.com/TransportadoraOrgaos/pi2-transport_orgaos}{https://github.com/TransportadoraOrgaos/pi2-transport\_orgaos}.\newline Link para o Travis: \href{https://travis-ci.org/TransportadoraOrgaos/pi2-transport\_orgaos/branches}{https://travis-ci.org/TransportadoraOrgaos/pi2-transport\_orgaos/branches}.\newline Link para aplicação no Heroku: \href{https://transorg.herokuapp.com}{https://transorg.herokuapp.com}}.
 
 \begin{figure}[H]
 	\centering
