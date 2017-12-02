@@ -49,6 +49,15 @@ A arquitetura de software implementada consiste no modelo cliente-servidor. No s
 			
 \section{Sistema WEB}
 
+\subsection{Diagrama de classes}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=16cm]{figuras/diagrama_classe.png}
+	\caption{Diagrama de classes}
+\end{figure}
+
+
 \subsection{Cadastro de Usuários}
 	Foi implementado um sistema de cadastro de usuários, aos quais estes serão classificados e cadastrados em três diferentes tipos de acordo com seu nível de autorização.
 
@@ -141,7 +150,29 @@ A arquitetura de software implementada consiste no modelo cliente-servidor. No s
 
 \subsubsection{Integração contínua}
 
-Para o desenvolvimento da aplicação web, foi estabelecido um fluxo de trabalho conforme ilustrado pela figura...
+Para o desenvolvimento da aplicação web, foi estabelecido um fluxo de trabalho conforme ilustrado pela figura \ref{integra_continua}. Para cada desenvolvedor, foi criado uma branch para codificar, rodar os testes automatizados, realizar o commit e dar o push. A cada novo push, era criado uma nova build no travis da branch correspondente. Quando a branch atingia um nível aceitável, o desenvolvedor realizava o merge com a branch development. Uma nova bateria de testes era rodada nessa branch. Ao realizar o push, além de ser criada uma nova build no Travis, era feito o deploy em uma aplicação 'transorg-dev' no Heroku. Quando a branch development atingia um nível estável, era feito um pull request na master. Todos os desenvolvedores deveriam avaliar o pull request antes do merge ser realizado. Uma vez realizado o merge e o push da master, além de ser criado uma nova build no Travis, era feito um deploy na aplicação 'transorg' no Heroku.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=24cm]{figuras/integracao_continua.jpg}
+	\caption{Integração Contínua} \label{integra_continua}
+\end{figure}
+
+A figura \ref{travis} mostra as builds realidas pelo Travis:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=16cm]{figuras/travis.png}
+	\caption{Builds no Travis} \label{travis}
+\end{figure}
+
+A figura \ref{cobertura_codigo} mostra a cobertura do código dos testes realizados:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=14cm]{figuras/cobertura_codigo.png}
+	\caption{Cobertura de Código} \label{cobertura_codigo}
+\end{figure}
 
 
 
