@@ -1,12 +1,36 @@
-\section{Software}
+\section{Sistema de Comunicação}
+	
+			\subsection{Arquitetura de Software}
+			Em relação à Arquitetura de Software proposta não houve mudanças de escopo. 
+			A arquitetura implementada consiste no modelo cliente-servidor, aos quais o serverside (Lado do Servidor) foi implementado uma API, webservice, em liguagem Python conjunto ao framework Flask, que consiste na recepção e partilhamento dos dados advindos tanto do sistema web, quanto do sensoriamento da caixa transportadora, persistindo os dados e mantendo a segurança do sistema. O clientside (Lado do Cliente) consiste na aplicação web ao qual o usuário interagir com o sistema, de acordo com seu nível de autorização. Foi implementado em linguagem Python + framework Django, seguindo o modelo de desenvolvimento MTV: Model - View - Template.
 
-\subsection{Mudanças no escopo}
-	Algumas informações e diretrizes do projeto foram modificadas desde a concepção da ideia do projeto de software. A seguir apresentamos as mudanças realizadas no projeto para esta entrega.
-
-\subsubsection{Sistema Interno}
-	A principal mudança de escopo na implementação do sistema interno, após refinamento de requisitos, se dá pela remoção do controle e apresentação da pressão interna da caixa transportadora, com isso afeta diretamente os Requisitos Funcionais RF001, RF004, RF006, aos quais são destinados às funções descritas previamente.
-
-\subsubsection{Sistema WEB}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=16cm]{figuras/arquitetura_software.jpg}
+	\caption{Arquitetura de Software}
+\end{figure}
+			\subsection{Integração}
+			A integração com as outras áreas de engenharias deste projeto consiste na comunicação do sistema interno e webapp com os dispositivos eletrônicos e sensoriamento disposto na caixa transportadora. O sistema interno está atuando em conjunto com o microcontrolador para recepção dos dados dos sensores de temperatura, trava e controle on/off, e com a raspberry pi para transmissão dos dados para a API, com isso a equipe de desenvolvimento de software está a trabalhar ativamente com a equipe de eletrônica a fim de atingir os objetivos específicos relacionados à esses temas.
+			
+			\subsection{API}
+			
+			A API é o intermediário entre os sistemas e o banco de dados, uma forma de garantir que todos os dados sejam inseridos e recuperados através de um sistema em comum. Dessa forma podemos trabalhar com qualquer meio de visualização de dados e métodos de inserção, que se torna imprescindível para o funcionamento de um sistema onde temos uma interface WEB e um equipamento eletrônico que irá inserir dados no banco de dados.
+			
+			A caixa transportadora acessará a API para fornecer as leituras dos sensores de localização, temperatura, fechamento e os dados do transporte. A API tratará de armazenar esses dados no banco através dos endpoints configurados. A partir daí o sistema WEB pode recuperar esses dados com chamadas nos endpoints da API. 
+			
+			Portanto a caixa transportadora servirá somente como interface de inserção de dados enquanto o WEB app funcionará como inserção e recuperação.
+			
+			A API foi documentada na plataforma POSTMAN que automatiza e testa os endpoints configurados. 
+			
+			A seguir a tela da ferramenta com a api configurada:
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=16cm]{figuras/api_software.JPG}
+				\caption{API do Sistema}
+			\end{figure}
+			
+\section{Sistema WEB}
 	Assim como o sistema interno, as principais mudanças em relação ao escopo planejado para o webapp se dá pela remoção da apresentação de dados da pressão interna da caixa transportadora, removendo assim o Requisito Funcional RF008.
 	Outra mudança de escopo definido durante a implementação do sistema se dá na mudança de controle usuários e seus devidos acessos, ao quais não só “Médicos” serão os usuários do sistema, mas sim definidos 3 tipos de usuários, a serem descritos posteriormente, com isso serão atualizados os Requisitos Funcionais RF011 e RF013.
 
@@ -41,20 +65,6 @@
 \label{RF013}
 \end{table}
 
-\subsubsection{Arquitetura de Software}
-
-Em relação à Arquitetura de Software proposta não houve mudanças de escopo. 
-A arquitetura implementada consiste no modelo cliente-servidor, aos quais o serverside (Lado do Servidor) foi implementado uma API, webservice, em liguagem Python conjunto ao framework Flask, que consiste na recepção e partilhamento dos dados advindos tanto do sistema web, quanto do sensoriamento da caixa transportadora, persistindo os dados e mantendo a segurança do sistema. O clientside (Lado do Cliente) consiste na aplicação web ao qual o usuário interagir com o sistema, de acordo com seu nível de autorização. Foi implementado em linguagem Python + framework Django, seguindo o modelo de desenvolvimento MTV: Model - View - Template.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=16cm]{figuras/arquitetura_software.jpg}
-\caption{Arquitetura de Software}
-\end{figure}
-
-\subsubsection{Integração}
-
-	A integração com as outras áreas de engenharias deste projeto consiste na comunicação do sistema interno e webapp com os dispositivos eletrônicos e sensoriamento disposto na caixa transportadora. O sistema interno está atuando em conjunto com o microcontrolador para recepção dos dados dos sensores de temperatura, trava e controle on/off, e com a raspberry pi para transmissão dos dados para a API, com isso a equipe de desenvolvimento de software está a trabalhar ativamente com a equipe de eletrônica a fim de atingir os objetivos específicos relacionados à esses temas.
 
 \subsection{Requisitos Implementados}
 \subsubsection{Cadastro de Usuários}
@@ -145,22 +155,4 @@ A arquitetura implementada consiste no modelo cliente-servidor, aos quais o serv
 \centering
 \includegraphics[width=16cm]{figuras/relatorio_software.png}
 \caption{Relatórios do sistema}
-\end{figure}
-
-\subsubsection{API}
-
-A API é o intermediário entre os sistemas e o banco de dados, uma forma de garantir que todos os dados sejam inseridos e recuperados através de um sistema em comum. Dessa forma podemos trabalhar com qualquer meio de visualização de dados e métodos de inserção, que se torna imprescindível para o funcionamento de um sistema onde temos uma interface WEB e um equipamento eletrônico que irá inserir dados no banco de dados.
-
-A caixa transportadora acessará a API para fornecer as leituras dos sensores de localização, temperatura, fechamento e os dados do transporte. A API tratará de armazenar esses dados no banco através dos endpoints configurados. A partir daí o sistema WEB pode recuperar esses dados com chamadas nos endpoints da API. 
-
-Portanto a caixa transportadora servirá somente como interface de inserção de dados enquanto o WEB app funcionará como inserção e recuperação.
-
-A API foi documentada na plataforma POSTMAN que automatiza e testa os endpoints configurados. 
-
- A seguir a tela da ferramenta com a api configurada:
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=16cm]{figuras/api_software.JPG}
-\caption{API do Sistema}
 \end{figure}
