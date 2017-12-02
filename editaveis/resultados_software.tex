@@ -1,16 +1,25 @@
 \section{Sistema de Comunicação}
-	
-			\subsection{Arquitetura de Software}
-			Em relação à Arquitetura de Software proposta não houve mudanças de escopo. 
-			A arquitetura implementada consiste no modelo cliente-servidor, aos quais o serverside (Lado do Servidor) foi implementado uma API, webservice, em liguagem Python conjunto ao framework Flask, que consiste na recepção e partilhamento dos dados advindos tanto do sistema web, quanto do sensoriamento da caixa transportadora, persistindo os dados e mantendo a segurança do sistema. O clientside (Lado do Cliente) consiste na aplicação web ao qual o usuário interagir com o sistema, de acordo com seu nível de autorização. Foi implementado em linguagem Python + framework Django, seguindo o modelo de desenvolvimento MTV: Model - View - Template.
+
+\subsection{Visão Geral}
+
+ Dois microcontroladores foram utilizados no sistema de comunicação: um para receber informações de temperatura (msp) e outro para fazer a comunicação com o módulo GPRS. O módulo GPRS possui uma antena GPS integrada, possibilitando enviar informações de localização para o raspberry PI. Além desses sinais, também é monitorado o fechamento da câmara, através do uso de um botão de fim de curso, e se ela está habilitada ou desabilitada, por meio do uso de uma chave. Todas essas informações são lidas pela raspberry PI e armazenadas em um banco de dados MySQL, sendo que a data e hora do report são recuperados pelo próprio sistema da raspberry. Um script escrito em python é responsável por ler informações da tabela do BD e enviar, sempre um registro por vez, os dados para o arduino. O arduino, por sua vez, é responsável por montar o arquivo JSON com as informações recebidas e enviar (POST) para a API, através do módulo GPRS, o qual permite uma conexão com a internet através da rede GSM. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=16cm]{figuras/arquitetura_software.jpg}
+	\includegraphics[width=16cm]{figuras/comunicacao_eletronica_software.jpg}
+	\caption{Visão geral do sistema de comunicação}
+\end{figure}
+
+	
+\subsection{Arquitetura de Software}
+A arquitetura de software implementada consiste no modelo cliente-servidor. No server-side foi implementado uma API (webservice), em liguagem Python utilizando o framework Flask, que consiste na recepção e partilhamento dos dados advindos tanto do sistema web, quanto do sensoriamento da caixa transportadora, persistindo os dados e mantendo a segurança do sistema. O client-side consiste na aplicação web, com a qual o usuário interagir com o sistema, de acordo com seu nível de autorização. Foi implementado em linguagem Python + framework Django, seguindo o modelo de desenvolvimento MTV: Model - View - Template.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=12cm]{figuras/arquitetura_software.jpg}
 	\caption{Arquitetura de Software}
 \end{figure}
-			\subsection{Integração}
-			A integração com as outras áreas de engenharias deste projeto consiste na comunicação do sistema interno e webapp com os dispositivos eletrônicos e sensoriamento disposto na caixa transportadora. O sistema interno está atuando em conjunto com o microcontrolador para recepção dos dados dos sensores de temperatura, trava e controle on/off, e com a raspberry pi para transmissão dos dados para a API, com isso a equipe de desenvolvimento de software está a trabalhar ativamente com a equipe de eletrônica a fim de atingir os objetivos específicos relacionados à esses temas.
+		
 			
 			\subsection{API}
 			
@@ -18,9 +27,7 @@
 			
 			A caixa transportadora acessará a API para fornecer as leituras dos sensores de localização, temperatura, fechamento e os dados do transporte. A API tratará de armazenar esses dados no banco através dos endpoints configurados. A partir daí o sistema WEB pode recuperar esses dados com chamadas nos endpoints da API. 
 			
-			Portanto a caixa transportadora servirá somente como interface de inserção de dados enquanto o WEB app funcionará como inserção e recuperação.
-			
-			A API foi documentada na plataforma POSTMAN que automatiza e testa os endpoints configurados. 
+			Portanto a caixa transportadora servirá somente como interface de inserção de dados enquanto o WEB app funcionará como inserção e recuperação. A API foi documentada na plataforma POSTMAN que automatiza e testa os endpoints configurados\footnote{Link para a documentação: \href{https://documenter.getpostman.com/view/579285/transorg/6tXcSQ7}{https://documenter.getpostman.com/view/579285/transorg/6tXcSQ7} Link para o repositório: \href{https://github.com/TransportadoraOrgaos/restfull-api}{https://github.com/TransportadoraOrgaos/restfull-api}}. 
 			
 			A seguir a tela da ferramenta com a api configurada:
 			
@@ -29,45 +36,24 @@
 				\includegraphics[width=16cm]{figuras/api_software.JPG}
 				\caption{API do Sistema}
 			\end{figure}
+	
+			
+			
+			
+			
 			
 \section{Sistema WEB}
-	Assim como o sistema interno, as principais mudanças em relação ao escopo planejado para o webapp se dá pela remoção da apresentação de dados da pressão interna da caixa transportadora, removendo assim o Requisito Funcional RF008.
-	Outra mudança de escopo definido durante a implementação do sistema se dá na mudança de controle usuários e seus devidos acessos, ao quais não só “Médicos” serão os usuários do sistema, mas sim definidos 3 tipos de usuários, a serem descritos posteriormente, com isso serão atualizados os Requisitos Funcionais RF011 e RF013.
 
-\begin{table}[H]
-\centering
-\begin{tabular}{|
->{\columncolor[HTML]{C0C0C0}}l |l|l|l|}
-\hline
-\textbf{Identificador} & \multicolumn{3}{l|}{RF011}                                                                                                                                                                      \\ \hline
-\textbf{Nome}          & \multicolumn{3}{l|}{Cadastrar Usuários}                                                                                                                      \\ \hline
-\textbf{Módulo}        & \multicolumn{3}{l|}{Sistema Web}                                                                                                                                                            \\ \hline
-\textbf{Versão}        & 2                                             & \cellcolor[HTML]{C0C0C0}\textbf{Prioridade}                                             & Essencial                                             \\ \hline
-\textbf{Descrição}     & \multicolumn{3}{l|}{\begin{tabular}[c]{@{}l@{}}O web app deve permitir o cadastro de usuários aos quais irão interagir\\
- com o sistema web.\end{tabular}} \\ \hline
-\end{tabular}
-\caption{Sistema Web - requisito funcional 011}
-\label{RF011}
-\end{table}
+\subsection{Diagrama de classes}
 
-\begin{table}[H]
-\centering
-\begin{tabular}{|
->{\columncolor[HTML]{C0C0C0}}l |l|l|l|}
-\hline
-\textbf{Identificador} & \multicolumn{3}{l|}{RF013}                                                                                                                                                                      \\ \hline
-\textbf{Nome}          & \multicolumn{3}{l|}{Definir nível de autorização dos usuários}                                                                                                                      \\ \hline
-\textbf{Módulo}        & \multicolumn{3}{l|}{Sistema Web}                                                                                                                                                            \\ \hline
-\textbf{Versão}        & 2                                             & \cellcolor[HTML]{C0C0C0}\textbf{Prioridade}                                             & Essencial                                             \\ \hline
-\textbf{Descrição}     & \multicolumn{3}{l|}{\begin{tabular}[c]{@{}l@{}}O web app deverá possuir um nível de acesso diferenciado para os 3 níveis\\definidos. Seja eles: Administrador, Transportador e Usuário.\end{tabular}} \\ \hline
-\end{tabular}
-\caption{Sistema Web - requisito funcional 013}
-\label{RF013}
-\end{table}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=16cm]{figuras/diagrama_classe.png}
+	\caption{Diagrama de classes}
+\end{figure}
 
 
-\subsection{Requisitos Implementados}
-\subsubsection{Cadastro de Usuários}
+\subsection{Cadastro de Usuários}
 	Foi implementado um sistema de cadastro de usuários, aos quais estes serão classificados e cadastrados em três diferentes tipos de acordo com seu nível de autorização.
 
 \begin{itemize}
@@ -84,7 +70,7 @@
 \caption{Arquitetura de Software}
 \end{figure}
 
-\subsubsection{Listar e Apagar Usuários}
+\subsection{Listar e Apagar Usuários}
 	O sistema irá dispor de uma página específica para listar todos os usuários cadastrados juntamente com a opção de deletar os mesmos. A seguir a tela de listagem de usuários:
 
 \begin{figure}[H]
@@ -93,7 +79,7 @@
 \caption{Listar usuários}
 \end{figure}
 
-\subsubsection{Sistema de Login}
+\subsection{Sistema de Login}
 	O sistema de autenticação se dará por meio do envio dos dados das credenciais à API, composto por nome de usuário e senha, e caso estas informações estejam corretas a API retorna um token de acesso ao qual é guardado em uma sessão, onde para acesso às páginas, o sistema sempre verificará se consta na sessão o token correto, caso contrário retornará à página de login. 
 	
 	A seguir a tela de Login:
@@ -104,7 +90,7 @@
 \caption{Login no WebApp}
 \end{figure}
 
-\subsubsection{Cadastro de Câmaras}
+\subsection{Cadastro de Câmaras}
 	O sistema dispõe de um cadastro de novas câmaras, onde é solicitado o nome da mesma para seu cadastro. Internamente é criada junto ao webservice com seu id relacionado. A partir de sua criação, esta câmara já fica disponível para transporte no sistema.
 	
 	A seguir a tela de cadastro de câmaras:
@@ -115,7 +101,7 @@
 \caption{Cadastro de Câmaras}
 \end{figure}
 
-\subsubsection{Visualizar Todas as Câmaras}
+\subsection{Visualizar Todas as Câmaras}
 	A tela principal do sistema se dará pela visualização das câmaras disponíveis e em uso, a partir dela será possível iniciar novas solicitações de transporte. Câmaras disponíveis e fora de uso também há a opção de deleção.
 	
 	A seguir tela de visualização de câmaras:
@@ -126,7 +112,7 @@
 \caption{Listar Câmaras}
 \end{figure}
 
-\subsubsection{Iniciar Novo Transporte:}
+\subsection{Iniciar Novo Transporte}
 	A partir da seleção de uma câmara disponível o usuário é redirecionado à página de início de um novo transporte onde é solicitado informar o responsável pelo transporte e o órgão ao qual será transportado.
 	
 	A seguir a tela de início de um novo transporte:
@@ -137,7 +123,7 @@
 \caption{Iniciar Transporte}
 \end{figure}
 
-\subsubsection{Visualizar Transporte em Andamento:}
+\subsection{Visualizar Transporte em Andamento}
 	A principal funcionalidade do sistema, onde se é possível visualizar todas as informações de um transporte em andamento. As informações apresentadas são: gráfico de temperatura, temperatura atual, localização atual, responsável pelo transporte, órgão transportado, status da trava de segurança e data e hora destes dados.
 
 	A seguir tela de visualização de andamento de um transporte ativo:
@@ -148,7 +134,7 @@
 \caption{Câmara de transporte}
 \end{figure}
 
-\subsubsection{Relatório}
+\subsection{Relatório}
 	O sistema dispõe de uma funcionalidade de relatório, ao qual o usuário irá visualizar as informações dos transportes realizados, com opção de exportação em PDF.
 	A seguir tela de relatório:
 \begin{figure}[H]
@@ -156,4 +142,33 @@
 \includegraphics[width=16cm]{figuras/relatorio_software.png}
 \caption{Relatórios do sistema}
 \end{figure}
+
+\subsubsection{Integração contínua}
+
+Para o desenvolvimento da aplicação web, foi estabelecido um fluxo de trabalho conforme ilustrado pela figura \ref{integra_continua}. Para cada desenvolvedor, foi criado uma branch para codificar, rodar os testes automatizados, realizar o commit e dar o push. A cada novo push, era criado uma nova build no travis da branch correspondente. Quando a branch atingia um nível aceitável, o desenvolvedor realizava o merge com a branch development. Uma nova bateria de testes era rodada nessa branch. Ao realizar o push, além de ser criada uma nova build no Travis, era feito o deploy em uma aplicação 'transorg-dev' no Heroku. Quando a branch development atingia um nível estável, era feito um pull request na master. Todos os desenvolvedores deveriam avaliar o pull request antes do merge ser realizado. Uma vez realizado o merge e o push da master, além de ser criado uma nova build no Travis, era feito um deploy na aplicação 'transorg' no Heroku \footnote{Link para o repositório: \href{https://github.com/TransportadoraOrgaos/pi2-transport_orgaos}{https://github.com/TransportadoraOrgaos/pi2-transport\_orgaos}.\newline Link para o Travis: \href{https://travis-ci.org/TransportadoraOrgaos/pi2-transport\_orgaos/branches}{https://travis-ci.org/TransportadoraOrgaos/pi2-transport\_orgaos/branches}.\newline Link para aplicação no Heroku: \href{https://transorg.herokuapp.com}{https://transorg.herokuapp.com}}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=24cm]{figuras/integracao_continua.jpg}
+	\caption{Integração Contínua} \label{integra_continua}
+\end{figure}
+
+A figura \ref{travis} mostra as builds realidas pelo Travis:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=16cm]{figuras/travis.png}
+	\caption{Builds no Travis} \label{travis}
+\end{figure}
+
+A figura \ref{cobertura_codigo} mostra a cobertura do código dos testes realizados:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=14cm]{figuras/cobertura_codigo.png}
+	\caption{Cobertura de Código} \label{cobertura_codigo}
+\end{figure}
+
+
+
 
