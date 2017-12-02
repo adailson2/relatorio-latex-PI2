@@ -5,7 +5,7 @@ O sistema de refrigeração é uma etapa crucial do projeto da transportadora de
 		\item Refrigeração por Compressão Mecânica de Vapor - Compressor.
 	\end{itemize}
 	
-	O refrigerador termoelétrico utiliza-se de dois materiais distintos, como pares termoelétricos convencionais. Há duas junções entre esses dois materiais em um refrigerador termoelétrico, uma está localizada no espaço refrigerado e a outra no meio ambiente. Quando se aplica uma diferença de potencial, a temperatura da junção que se encontra no espaço refrigerado diminui e a temperatura da outra junção aumenta. Operando em regime permanente, ocorrerá uma transmissão de calor do espaço refrigerado para a junção fria. A outra junção se encontrará a uma temperatura acima à ambiente e haverá então uma transmissão de calor para o local.
+	O refrigerador termoelétrico utiliza-se de dois materiais distintos, como pares termoelétricos convencionais. Há duas junções entre esses dois materiais em um refrigerador termoelétrico, uma está localizada no espaço refrigerado e a outra no meio ambiente. Quando se aplica uma diferença de potencial, a temperatura da junção que se encontra no espaço refrigerado diminui e a temperatura da outra junção aumenta. Operando em regime permanente, ocorrerá uma transmissão de calor do espaço refrigerado para a junção fria. A outra junção se encontrará a uma temperatura acima à ambiente e haverá, então, uma transmissão de calor para o local.
 	
 	A utilização dos módulos de peltier tem as seguintes vantagens: 
 	
@@ -19,7 +19,7 @@ O sistema de refrigeração é uma etapa crucial do projeto da transportadora de
 		
 	\end{itemize}
 	
-	Já o sistema de refrigeração por compressão mecânica de vapor funciona simplificadamente da seguinte forma, o fluido refrigerante que percorre um circuito fechado para absorver e remover o calor de um espaço que necessita de arrefecimento. Em qualquer processo de refrigeração, ocorre a transferência de calor de um ambiente para outro com a ajuda de um agente externo, que no caso deste sistema é o compressor (FERRAZ, 2008).
+	Já o sistema de refrigeração por compressão mecânica de vapor funciona simplificadamente da seguinte forma: o fluido refrigerante que percorre um circuito fechado para absorver e remover o calor de um espaço que necessita de arrefecimento. Em qualquer processo de refrigeração, ocorre a transferência de calor de um ambiente para outro com a ajuda de um agente externo, que no caso deste sistema é o compressor (FERRAZ, 2008).
 	
 	Ao se optar por este tipo de sistema de refrigeração, têm-se como vantagens:
 	\begin{itemize}
@@ -27,7 +27,7 @@ O sistema de refrigeração é uma etapa crucial do projeto da transportadora de
 		\item Maior eficiência.
 	\end{itemize}
 
-	Em um primeiro momento optou-se pela refrigeração termoelétrica, realizaram-se vários testes de configurações para a célula peltier, entretanto não obtivemos resultados satisfatórios com relação à temperatura atingida dentro da câmara a ser refrigerada, apesar de conseguirmos uma temperatura adequada na face da módulo termoelétrico. A figura abaixo apresenta alguns dos testes realizados.
+	Em um primeiro momento optou-se pela refrigeração termoelétrica, realizaram-se vários testes de configurações para a célula peltier. Entretanto não foram obtidos resultados satisfatórios com relação à temperatura atingida dentro da câmara a ser refrigerada, apesar de conseguirmos uma temperatura adequada na face da módulo termoelétrico. A figura abaixo apresenta alguns dos testes realizados.
 	
 	
 	\begin{figure}[H]
@@ -88,10 +88,22 @@ O sistema de refrigeração é uma etapa crucial do projeto da transportadora de
 		
 	Logo, a energia térmica do órgão é:
 	$$
-	Q_{órgão} = 13,8 KJ
+	Q_{órgão} = 13,8 KJ = 13,1 BTU
 	$$	
 	
-	Logo, a energia térmica do órgão é:
+	A potência térmica do órgão pode ser calculada a partir da equação a seguir:
+	\begin{equation}
+	P_{órgão} = \frac{Q_{órgão}}{\Delta t}
+	\end{equation}
+	Sendo:
+	
+	P = potência térmica (W);
+	
+	Q = energia térmica (KJ);
+	
+	$\Delta t$ = tempo de resfriamento (s)
+	
+	Logo, a potência térmica do órgão é:
 	$$
 	P_{órgão} = \frac{13,8}{\Delta t} \approx 5,1 W
 	$$
@@ -99,7 +111,7 @@ O sistema de refrigeração é uma etapa crucial do projeto da transportadora de
 	\subsubsection{Cálculo da energia e potência térmica da embalagem com solução Viaspan na qual o órgão está contido}
 	Aplicando a equação para a energia térmica, tem-se:
 	$$
-	Q = 500  \times 0,97 \times 33 \approx 67 KJ
+	Q = 500  \times 0,97 \times 33 \approx 67 KJ \approx 63,5 BTU
 	$$
 	Aplicando a equação para a potência térmica, tem-se:
 	$$
@@ -110,21 +122,27 @@ O sistema de refrigeração é uma etapa crucial do projeto da transportadora de
 	
 	Aplicando a equação para a energia térmica, tem-se:
 	$$
-	Q_{aluminio} = 3000 \times 0,22 \times 33 \approx 91,2 KJ
+	Q_{aluminio} = 3000g \times 0,22\frac{cal}{g ^oC} \times 33 \approx 91,2 KJ \approx 86,4 BTU
 	$$
 	
-	Aplicando a equação para a energia térmica, tem-se:
+	Aplicando a equação para a potência térmica, tem-se:
 	$$
-	P_{aluminio} \approx 33,8
+	P_{aluminio} = \frac{91,2 (KJ)}{2700 s} \approx 33,8 W
 	$$
 	
-		A soma das potências térmicas do órgão, da embalagem contendo a solução Viaspan e do alumínio fornecem a potência térmica total do interior da caixa, necessária ao resfriamento.
-		
-		A caixa externa também está envolvida nos cálculos de potência térmica devido a transferência de calor que ocorre entre a vizinhança e o sistema.
+		A soma das potências térmicas do órgão, da embalagem contendo a solução Viaspan e do alumínio fornecem a potência térmica total do interior da caixa, necessária ao resfriamento, como mostra a equação a seguir:
+		$$
+		P_{interna} = P_{órgão}
+ + P + P_{Alumínio}		$$
+ 
+		 $$
+		 P_{interna}(W) = 5,1+24,8+33,8 = 63,7 W
+		 $$
+		A caixa externa também está envolvida nos cálculos de potência térmica devido à transferência de calor que ocorre entre a vizinhança e o sistema.
 		
 		\subsubsection{Cálculo da resistência térmica $(Rt)$ e o coeficiente global de transferência de calor (U)}
 		
-		A resistência térmica é calculada a partir da equação
+		A resistência térmica é calculada a partir da equação:
 		
 		$$
 		R_t = \frac{L_{isopor}}{K_{isopor}}
@@ -139,7 +157,7 @@ O sistema de refrigeração é uma etapa crucial do projeto da transportadora de
 	
 	Aplicando a equação, tem-se:
 	$$
-	R_t = \frac{0,7}{0,007} \approx 2\frac{m^2K}{W}
+	R_t = \frac{0,7}{0,007} = 2\frac{m^2K}{W}
 	$$
 	
 	O coeficiente global de transferência de calor é calculado a partir da equação.
@@ -147,8 +165,9 @@ O sistema de refrigeração é uma etapa crucial do projeto da transportadora de
 	U = \frac{1}{R_t}
 	\end{equation}
 	Aplicando a equação acima, tem-se:
+
 	$$
-	U = 0,5 \frac{W}{m^2 K}
+	U = \frac{1}{2} = 0,5 \frac{W}{m^2 K}
 	$$
 	
 	A quantidade de calor que atravessa as paredes da caixa externa é dada pela equação a seguir:
@@ -156,12 +175,26 @@ O sistema de refrigeração é uma etapa crucial do projeto da transportadora de
 	Q = U \times A \times \Delta T
 	\end{equation}
 	
-	Aplicando a equação, considerando-se a área total da caixa, tem-se:
+	Sendo:
 	
+	
+	Aplicando a equação, considerando-se a área total da caixa, tem-se:
+	Q = quantidade de calor que atravessa a parede da caixa (W);
+	
+	A = área da parede ($m^2$);
+	
+	U = coeficiente global de transferência de calor ($\frac{W}{m^2K}$)
+	
+	$\Delta T$= variação da temperatura (ºC)
+	
+	Como a área da parede é dada por $A = 0,09 m^2 \times 6$, temos a seguinte relação:
 	$$
-	Q = 0,5 \times 0,54 \times 33K
+	Q = 0,5 \times 0,54 \times 33K \approx 8,91 W
 	$$
 	Por fim, a potência térmica total do sistema é calculada pela soma da potência térmica interna da caixa junto a quantidade de calor que atravessa as paredes da caixa externa.
+	$$
+	P_{total} = P_{interna} + Q \longrightarrow P_{total} \approx 63,7 + 8,91 \approx 72,61W
+	$$
 	
 	Desta forma, conclui-se que o sistema de refrigeração deve suprir a potência de 72,61 W para o resfriamento às condições desejadas.
 	
@@ -180,7 +213,11 @@ O sistema de refrigeração é uma etapa crucial do projeto da transportadora de
 	
 	A - área de superfície de transferência de calor
 	
-	$\Delta T_{ln}$
+	$\Delta T_{ln}$ - diferença de temperatura média logarítmica (K)
+	
+	Utilizando as seguintes determinações para as temperaturas:
+	
+	\textit{Fluido quente(Ar)}: $T_e$= $25^oC$    e     $T_S$= $2^oC$
 	
 	
 Como o valor do coeficiente global de transferência de calor (K) pode variar, conforme a tabela abaixo,
@@ -191,8 +228,21 @@ Como o valor do coeficiente global de transferência de calor (K) pode variar, c
 	\end{center}
 	\end{figure}
 	
-	e considerando o pior dos casos de transferência de calor, obtemos um valor de 48,83 para um evaporador de serpentina e carcaça, que é o nosso caso.
+	e considerando o pior dos casos de transferência de calor, obtemos um valor de 48,83 $\frac{kcal}{m^2\times h \times ^oC}$ para um evaporador de serpentina e carcaça, que é o nosso caso.
 	
+	Formulando, obtemos a seguinte equação:
+	$$
+	Q = K \times A \times \frac{\Delta T_S - \Delta T_e}{ln\left(\frac{\Delta T_s}{Delta T_e}\right)}
+	$$
+	
+	De forma que se obtém:
+	
+	$$
+	72,61 = 48,83 \times A \times \frac{2 - 35}{ln\left(\frac{2}{35}\right)}
+	$$
+	
+	Como $A = \pi \times D \times L$ e D = 0,007 m, é possível encontrar L = 5,7 m.
+	 
 	A capacidade frigorífica ($Q_0$) é a quantidade de calor por unidade de tempo retirada do meio que se quer resfriar (produto) através do evaporador do sistema frigorífico. Para o sistema operando em regime permanente desprezando-se a variação de energia e potencial, pela primeira lei da termodinâmica obtém-se: 
 	
 	\begin{equation}
@@ -212,10 +262,16 @@ Como o valor do coeficiente global de transferência de calor (K) pode variar, c
 	 \begin{equation}
 	 EF = h_1-h_4
 	 \end{equation}
+	 Sendo, $T_C$= $30^oC$ e $T_0$ = $22^oC$, para o gás refrigerante R134a, obtemos  $h_1$ =180,5  kJkg  e $h_4$ = 173,1 kJkg  , logo
+	 
+	 $$
+	 E.F = 180,5 - 173,1 = 7,4
+	 $$
+	 
 	 Então, substituindo pelos dados coletados:
 	 
 	 $$
-	 m_f=9,81 \frac{Kg}{h}
+	72,61 =m_f \times 7,4 \longrightarrow m_f=9,81 \frac{Kg}{h}
 	 $$
 	 \subsection{Compressor}
 	 Para o dimensionamento do compressor, é necessário calcular a potência necessária para fazer o fluido refrigerante circular pela serpentina. Essa potência foi encontrada a partir da formulação: 
@@ -232,6 +288,10 @@ Como o valor do coeficiente global de transferência de calor (K) pode variar, c
 	 $h_2$ -  entalpia no início da compressão;
 	 
 	 $h_1$ - entalpia no final da compressão;
+	 
+	 $$
+	 W_c = 9,81 \times (194,8 - 180,5) \approx 140,28
+	 $$
 	 
 	 \section{Estrutura do Conjunto de Refrigeração}
 	 Após o dimensionamento do Sistema de Refrigeração, ocorreu a montagem do sistema final. O sistema dimensionado foi acoplado a estrutura geral do projeto, conforme demonstrado na Figura abaixo
